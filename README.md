@@ -55,6 +55,7 @@ Start the server
   yarn dev
 ```
 
+<br/>
 Now customize everything as your needs.
 
 ## License
