@@ -1,50 +1,27 @@
-const User = require("../models/userModel");
-const bcrypt = require("bcryptjs");
 const { asyncHandler } = require("../middleware/errorMiddleware");
-
 const sendToken = require("../utils/sendToken");
 const error = require("../utils/error");
+
+const authService = require("../service/authService");
 
 exports.registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
 
-  if (!name || !email || !password) throw error("Please add all fields", 400);
+  if (!name || !email || !password) throw error("Invalid Data", 400);
 
-  // Check if user exists
-  const userExists = await User.findOne({ email });
+  const user = await authService.registerService(name, email, password);
 
-  if (userExists) throw error("User already exists", 400);
-
-  // Hash password
-  const salt = await bcrypt.genSalt(10);
-  const hashed = await bcrypt.hash(password, salt);
-
-  const user = await User.create({
-    name,
-    email,
-    password: hashed,
-  });
-
-  if (user) sendToken(res, 201, user._id);
+  if (user) sendToken(res, 201, "User created successfully", user._id);
 });
 
 exports.loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
-  if (!email || !password) throw error("Please add all fields", 400);
+  if (!email || !password) throw error("Invalid Data", 400);
 
-  const user = await User.findOne({ email });
+  const user = await authService.loginService(email, password);
 
-  if (!user) throw error("User does not exists", 400);
-
-  const isPasswordMatched = await bcrypt.compare(password, user.password);
-
-  if (isPasswordMatched) {
-    const { password, ...others } = user._doc;
-    return sendToken(res, 200, others);
-  } else {
-    throw error("Invalid credentials", 400);
-  }
+  if (user) sendToken(res, 200, "User login successfully", user);
 });
 
 exports.getUser = asyncHandler(async (req, res) => {
