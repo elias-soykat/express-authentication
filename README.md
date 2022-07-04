@@ -8,6 +8,28 @@ Most simple and clean starter for those who wants to start the project right way
 
 <br/>
 
+## API ENDPOINT
+
+<b>Register user</b>
+
+```bash
+  localhost:5000/api/v1/auth/register
+```
+
+<b>Login user</b>
+
+```bash
+  localhost:5000/api/v1/auth/login
+```
+
+<b>Get user</b>
+
+```bash
+  localhost:5000/api/v1/auth/user
+```
+
+<br/>
+
 ## Run it in your device
 
 Clone the project
@@ -15,8 +37,6 @@ Clone the project
 ```bash
   git clone https://github.com/elias-soykat/express-authentication express-authentication
 ```
-
-<br/>
 
 Go to the project directory
 
