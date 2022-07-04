@@ -1,6 +1,6 @@
 ## express-authentication-starter
 
-### A node, express, mongoose template for creating backend server.
+### A Node, Express, MongoDB template for creating backend server.
 
 ### In this template also has full authentication flow with a JWT token.
 
