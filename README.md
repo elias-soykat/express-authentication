@@ -2,9 +2,9 @@
 
 ### A node, express, mongoose template for creating backend server.
 
-### In this template also have full authentication flow with JWT token.
+### In this template also has full authentication flow with a JWT token.
 
-Most simple and clean starter for those who wants to start the project right way without any hassle.
+Most simple and clean starter for those who want to start the project the right way without any hassle.
 
 <br/>
 
