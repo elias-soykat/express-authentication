@@ -12,7 +12,7 @@ Most simple and clean starter for those who wants to start the project right way
 Clone the project
 
 ```bash
-  git clone https://github.com/moinulmoin/vite-react-tailwind-starter express-authentication
+  git clone https://github.com/elias-soykat/express-authentication express-authentication
 ```
 
 <br/>
