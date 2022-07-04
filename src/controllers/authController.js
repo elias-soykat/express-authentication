@@ -35,6 +35,8 @@ exports.loginUser = asyncHandler(async (req, res) => {
 
   const user = await User.findOne({ email });
 
+  if (!user) throw error("User does not exists", 400);
+
   const isPasswordMatched = await bcrypt.compare(password, user.password);
 
   if (isPasswordMatched) {
