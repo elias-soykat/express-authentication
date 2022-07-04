@@ -1,13 +1,14 @@
 {
   "name": "express-authentication",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A node, express, mongoose template for creating backend server",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "dev": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "elias-soykat",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
