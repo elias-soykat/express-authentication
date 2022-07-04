@@ -5,6 +5,7 @@
 ### In this template also have full authentication flow with JWT token.
 
 Most simple and clean starter for those who wants to start the project right way without any hassle.
+
 <br/>
 
 ## Run it in your device
