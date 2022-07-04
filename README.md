@@ -2,12 +2,9 @@
 
 ### A node, express, mongoose template for creating backend server.
 
-<br/>
+### In this template also have full authentication flow with JWT token.
 
-### In this template project also have full authentication flow with JWT token.
-
-### Most simple and clean starter for those who wants to start the project right way without any hassle.
-
+Most simple and clean starter for those who wants to start the project right way without any hassle.
 <br/>
 
 ## Run it in your device
@@ -18,12 +15,15 @@ Clone the project
   git clone https://github.com/moinulmoin/vite-react-tailwind-starter express-authentication
 ```
 
+<br/>
+
 Go to the project directory
 
 ```bash
   cd express-authentication
 ```
 
+<br/>
 ### Or you can just download it as zip, then
 
 Install dependencies
@@ -38,7 +38,8 @@ Start the server
   npm run dev
 ```
 
-### Or if you are yarn user,
+<br>
+### Or if you are yarn user
 
 Install dependencies
 
