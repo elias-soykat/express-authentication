@@ -1,6 +1,8 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
+
 const { asyncHandler } = require("./errorMiddleware");
+const error = require("../utils/error");
 
 const isAuthenticated = asyncHandler(async (req, res, next) => {
   let token;
@@ -21,15 +23,11 @@ const isAuthenticated = asyncHandler(async (req, res, next) => {
 
       next();
     } catch (err) {
-      res.status(401);
-      throw new Error("Not authorized!");
+      throw error("Not authorized!", 401);
     }
   }
 
-  if (!token) {
-    res.status(401);
-    throw new Error("Not authorized!, no token");
-  }
+  if (!token) throw error("Not authorized!, no token", 401);
 });
 
 module.exports = isAuthenticated;

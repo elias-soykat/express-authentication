@@ -1,24 +1,19 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
-
 const { asyncHandler } = require("../middleware/errorMiddleware");
-const sendToken = require("../middleware/sendToken");
+
+const sendToken = require("../utils/sendToken");
+const error = require("../utils/error");
 
 exports.registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
 
-  if (!name || !email || !password) {
-    res.status(400);
-    throw new Error("Please add all fields");
-  }
+  if (!name || !email || !password) throw error("Please add all fields", 400);
 
   // Check if user exists
   const userExists = await User.findOne({ email });
 
-  if (userExists) {
-    res.status(400);
-    throw new Error("User already exists");
-  }
+  if (userExists) throw error("User already exists", 400);
 
   // Hash password
   const salt = await bcrypt.genSalt(10);
@@ -36,10 +31,7 @@ exports.registerUser = asyncHandler(async (req, res) => {
 exports.loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
-  if (!email || !password) {
-    res.status(400);
-    throw new Error("Please add all fields");
-  }
+  if (!email || !password) throw error("Please add all fields", 400);
 
   const user = await User.findOne({ email });
 
@@ -49,8 +41,7 @@ exports.loginUser = asyncHandler(async (req, res) => {
     const { password, ...others } = user._doc;
     return sendToken(res, 200, others);
   } else {
-    res.status(400);
-    throw new Error("Invalid credentials");
+    throw error("Invalid credentials", 400);
   }
 });
 
