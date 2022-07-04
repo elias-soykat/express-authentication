@@ -24,6 +24,7 @@ Go to the project directory
 ```
 
 <br/>
+
 ### Or you can just download it as zip, then
 
 Install dependencies
@@ -34,11 +35,12 @@ Install dependencies
 
 Start the server
 
-```bash
+```
   npm run dev
 ```
 
 <br>
+
 ### Or if you are yarn user
 
 Install dependencies
