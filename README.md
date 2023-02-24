@@ -85,4 +85,4 @@ Now customize everything as your needs.
 
 ## Support
 
-If it really helps you then leave a star. Thank you
+If it really helps you then leave a star. Thank you.
